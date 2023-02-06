@@ -7,4 +7,4 @@ from .models import Cart, Cart_Detail, Order, Order_Detail
 
 class OrderList(ListView):
     model = Order
-    
+    context_object_name = 'orders'
