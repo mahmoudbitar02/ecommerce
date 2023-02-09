@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-
+from django.db.models import Count
 from .models import Product, Brand
 
 # Create your views here.
@@ -16,6 +16,7 @@ class ProductDetail(DetailView):
 
 class BrandList(ListView):
     model=Brand
+    queryset=Brand.objects.all().annotate(product_count=Count('product_brand'))
 
-class Brand_singel(ListView):
-    pass
+class BrandDetail(ListView):
+    model=Brand
