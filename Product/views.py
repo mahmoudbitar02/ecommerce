@@ -8,6 +8,7 @@ from .models import Product, Brand
 
 class ProductList(ListView):
     model= Product
+    paginate_by=1
 
 class ProductDetail(DetailView):
     model= Product
