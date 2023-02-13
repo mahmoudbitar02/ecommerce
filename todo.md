@@ -1,0 +1,20 @@
+- brand detail : pagination
+- generate dummy data
+- queryset API --> debuging
+- users
+- dashboard : charts
+- cart
+- checkout
+- coupons
+- home
+- nav, footer
+- payment
+- ajax
+- celery
+- redis
+- docker
+- caching
+- testing
+- deploy
+- aws
+- vuejs basics
