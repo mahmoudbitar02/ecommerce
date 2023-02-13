@@ -16,6 +16,7 @@ class ProductDetail(DetailView):
 
 
 class BrandList(ListView):
+    paginate_by=1
     model=Brand
     queryset=Brand.objects.all().annotate(product_count=Count('product_brand'))
 
