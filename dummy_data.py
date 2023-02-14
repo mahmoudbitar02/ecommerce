@@ -28,7 +28,7 @@ def seed_product(n):
         name = fake.name()
         sku = random.randint(1,100000)
         image = f"Products/{images[random.randint(0,7)]}" 
-        brand = Brand.objects.get(id=random.randint(1,20))
+        brand = Brand.objects.get(id=random.randint(3,20))
         price = round (random.uniform(20.99,99.99),2)
         flag = flag_types[random.randint(0,2)]
         subtitle = fake.text(max_nb_chars=500)
