@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     "taggit",
+    'settings',
     'Product',
     'django_extensions',
     'orders',
