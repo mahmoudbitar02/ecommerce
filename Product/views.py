@@ -23,6 +23,7 @@ class BrandList(ListView):
 class BrandDSingle(ListView):
     model=Product
     paginate_by=50
+    template_name= 'Product/brand_single.html'
    
 
     def get_queryset(self):
