@@ -2,9 +2,10 @@ from django.urls import path
 
 app_name = 'Product'
 
-from .views import ProductList, ProductDetail, BrandList, BrandDSingle
+from .views import ProductList, ProductDetail, BrandList, BrandDSingle, query_Debug
 
 urlpatterns = [
+    path('debug' , query_Debug, name = 'query_debug'),
     path('', ProductList.as_view(), name = 'product_list'),
     path('<slug:slug>', ProductDetail.as_view(), name = 'product_detail'),
     path('brands/', BrandList.as_view(), name='brand_list'),

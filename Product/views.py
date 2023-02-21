@@ -6,6 +6,11 @@ from .models import Product, Brand
 # Create your views here.
 
 
+def query_Debug(request):
+    data = Product.objects.all()
+    return render (request,'Product/productlist.html',{'data':data})
+
+
 class ProductList(ListView):
     model= Product
     paginate_by=50
