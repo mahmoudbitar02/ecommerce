@@ -92,8 +92,9 @@
                                         <a href="{% url 'Products:product_detail' product.slug %}">{{product.name|title}}</a>
                                     </h6>
                                     <h6 class="product-price">
-                                        <del>$34</del>
+                                        
                                         <span>${{product.price}}<small>/piece</small></span>
+                                        
                                     </h6>
                                     <button class="product-add" title="Add to Cart">
                                         <i class="fas fa-shopping-basket"></i>

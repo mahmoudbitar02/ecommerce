@@ -2,12 +2,19 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.db.models import Count
 from .models import Product, Brand
+from django.db.models import Q,F 
 
 # Create your views here.
 
 
 def query_Debug(request):
-    data = Product.objects.all()
+    #data = Product.objects.filter(name__contains='Noah', price__lt=75)
+    #data = Product.objects.filter(Q(name__contains='Noah') & Q(price__lt=75))
+    #data = Product.objects.filter(price= F('quantity'))
+    #data = Product.objects.filter(price__lt=75).order_by('name',).reverse()
+    #data = Product.objects.order_by('name')
+    data = Product.objects.values('name','id','price')
+
     return render (request,'Product/productlist.html',{'data':data})
 
 

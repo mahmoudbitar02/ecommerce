@@ -9,9 +9,11 @@
 <body>
     <h1> Debug</h1>
 
+    
+
     <ul>
         {% for item in data %}
-            <li>{{item}} - {{item.brand}} - {{item.product_review.all|length}}</li>
+            <li>{{item}} - {{item.price}}</li>
           
         {% endfor %}
     </ul>
