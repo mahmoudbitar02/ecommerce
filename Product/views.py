@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from django.db.models import Count
 from .models import Product, Brand
-from django.db.models import Q,F 
+from django.db.models import Q,F, Value, Func 
+from django.db.models import Sum, Avg, Min, Max, Count 
 
 # Create your views here.
 
@@ -13,8 +13,10 @@ def query_Debug(request):
     #data = Product.objects.filter(price= F('quantity'))
     #data = Product.objects.filter(price__lt=75).order_by('name',).reverse()
     #data = Product.objects.order_by('name')
-    data = Product.objects.select_related('brand').all()
-    data = Product.objects.predetch_related('brand').all() # many to many
+    #data = Product.objects.select_related('brand').all()
+    #data = Product.objects.predetch_related('brand').all() # many to many
+
+    data= Product.objects.annotate(is_new=F('quantity'))
 
     return render (request,'Product/productlist.html',{'data':data})
 
