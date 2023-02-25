@@ -13,7 +13,7 @@ def query_Debug(request):
     #data = Product.objects.filter(price= F('quantity'))
     #data = Product.objects.filter(price__lt=75).order_by('name',).reverse()
     #data = Product.objects.order_by('name')
-    data = Product.objects.values('name','id','price')
+    data = Product.objects.select_related('brand').all()
 
     return render (request,'Product/productlist.html',{'data':data})
 
