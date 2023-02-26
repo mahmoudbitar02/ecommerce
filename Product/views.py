@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Product, Brand
-from django.db.models import Q,F, Value, Func 
+from django.db.models import Q,F, Value, Func, ExpressionWrapper, DecimalField,FloatField 
 from django.db.models import Sum, Avg, Min, Max, Count 
+from django.db.models.functions import Concat
 
 # Create your views here.
 
@@ -16,7 +17,17 @@ def query_Debug(request):
     #data = Product.objects.select_related('brand').all()
     #data = Product.objects.predetch_related('brand').all() # many to many
 
-    data= Product.objects.annotate(is_new=F('quantity'))
+    #data= Product.objects.annotate(
+     #   Full_name= Func(F('name'),F('flag'), function='CONCAT')
+    
+    #)
+
+    #data= Product.objects.annotate(
+     #   Full_name= Concat('name',Value(' '), 'flag')
+    
+    #)
+    dis_price=ExpressionWrapper(F('price')*.8,output_field=DecimalField())
+    data=Product.objects.annotate(discounted_price = dis_price)
 
     return render (request,'Product/productlist.html',{'data':data})
 
