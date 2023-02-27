@@ -81,12 +81,13 @@
                                 </div>
                                 <div class="product-content">
                                     <div class="product-rating">
-                                        <i class="active icofont-star"></i>
-                                        <i class="active icofont-star"></i>
-                                        <i class="active icofont-star"></i>
-                                        <i class="active icofont-star"></i>
-                                        <i class="icofont-star"></i>
-                                        <a href="product-video.html">(3)</a>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_Avg > 0 %} active {% endif %}"></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_Avg > 1 %} active {% endif %}"></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_Avg > 2 %} active {% endif %}"></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_Avg > 3 %} active {% endif %}"></i>
+                                        <i class="icofont-star {% if product.get_avg_rate.rate_Avg > 4 %} active {% endif %}"></i>
+                                        <a href="product-video.html">({{product.product_review.all|length}})</a>
+                                        <p>{{product.get_avg_rate.rate_Avg}}</p>
                                     </div>
                                     <h6 class="product-name">
                                         <a href="{% url 'Products:product_detail' product.slug %}">{{product.name|title}}</a>
