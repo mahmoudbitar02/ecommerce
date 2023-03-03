@@ -47,9 +47,9 @@ def add_review(request, slug):
         if form.is_valid():
             myform = form.save(commit=False)
             myform.user = request.user 
-            myform.prod = product
+            myform.product = product
             myform.save()
-    return redirect(f'/product/{product.slug}')
+    return redirect(f'/products/{product.slug}')
 
 
 
