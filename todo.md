@@ -18,3 +18,7 @@
 - deploy
 - aws
 - vuejs basics
+
+
+
+FEHLER: product_detail zeile 246 action 
