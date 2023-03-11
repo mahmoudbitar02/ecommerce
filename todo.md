@@ -21,4 +21,8 @@
 
 
 
+<<<<<<< HEAD
 FEHLER: product_detail zeile 246 action bitte beachten 
+=======
+FEHLER: product_detail zeile 246 action 
+>>>>>>> Lecture06
