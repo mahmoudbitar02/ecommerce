@@ -41,15 +41,15 @@ class ProductDetail(DetailView):
 
 
 def add_review(request, slug):
-    product = Product.objects.get(slug=slug)
+    product_1 = Product.objects.get(slug=slug)
     if request.method == 'POST':
         form = ProductReviewForm(request.POST)
         if form.is_valid():
             myform = form.save(commit=False)
             myform.user = request.user 
-            myform.product = product
+            myform.product = product_1
             myform.save()
-    return redirect(f'/products/{product.slug}')
+    return redirect(f'/products/{product_1.slug}')
 
 
 
@@ -76,4 +76,7 @@ class BrandDSingle(ListView):
         data=Brand.objects.filter(slug=self.kwargs['slug']).annotate(product_count=Count('product_brand'))[0]
         context["brand"] = data
         return context
+
+
+        
     
