@@ -7,7 +7,7 @@
 - checkout
 - coupons
 - home
-
+- review on product_detail.html has a problem 
 - payment
 - ajax
 - celery
@@ -18,11 +18,3 @@
 - deploy
 - aws
 - vuejs basics
-
-
-
-<<<<<<< HEAD
-FEHLER: product_detail zeile 246 action bitte beachten 
-=======
-FEHLER: product_detail zeile 246 action 
->>>>>>> Lecture06
