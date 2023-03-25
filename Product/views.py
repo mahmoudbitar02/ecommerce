@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
-from .models import Product, Brand
+from .models import Product, Brand, Reviews
 from django.db.models import Q,F, Value, Func, ExpressionWrapper, DecimalField,FloatField 
 from django.db.models import Sum, Avg, Min, Max, Count 
 from django.db.models.functions import Concat
 from .forms import ProductReviewForm
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 # Create your views here.
 
 
@@ -49,7 +51,10 @@ def add_review(request, slug):
             myform.user = request.user 
             myform.product = product_1
             myform.save()
-    return redirect(f'/products/{product_1.slug}')
+
+            reviews= Reviews.objects.filter(product=product_1)
+            html = render_to_string('include/all_reviews.html',{'reviews': reviews, request:request})
+            return JsonResponse({'result':html})
 
 
 
