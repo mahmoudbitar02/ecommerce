@@ -706,6 +706,7 @@
                         dataType: 'json',
                         success: function(response){
                             $('#all-reviews').html(response['result'])
+                            $("#reviewform").trigger('reset');
                         },
                         error: function(response){},
                     })
