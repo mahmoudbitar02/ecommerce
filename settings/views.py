@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
-from models import Company
+from .models import Company
 
-
+def home(request):
+    pass

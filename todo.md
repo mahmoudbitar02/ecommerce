@@ -18,3 +18,4 @@
 - deploy
 - aws
 - vuejs basics
+- Ajax Problem on product_detail.html // the page cann not refresh when i drop the review
