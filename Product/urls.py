@@ -4,7 +4,7 @@ app_name = 'Product'
 
 from .views import ProductList, ProductDetail, BrandList, BrandDSingle, query_Debug, add_review
 
-from .api import productlist_api
+from .api import productlist_api, ProductListApi
 
 urlpatterns = [
     path('debug' , query_Debug, name = 'query_debug'),
@@ -22,6 +22,7 @@ urlpatterns = [
 
 
     # api urls
-    path('api/list', productlist_api, name= 'product list'),
+    #path('api/list', productlist_api, name= 'product list'),
+    path('api/list', ProductListApi.as_view(), name= 'product list'),
 
 ]
